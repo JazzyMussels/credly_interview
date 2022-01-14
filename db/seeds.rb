@@ -1,7 +1,7 @@
 require 'rest-client'
 require 'json'
 require 'base64'
-require_relative '../.api_key.rb'
+# require_relative '../.api_key.rb'
 
 public_key = '1c829e435b4e86561621f2a7a7259e9e'
 

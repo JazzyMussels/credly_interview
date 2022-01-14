@@ -1,7 +1,7 @@
 require 'date'
 require 'rest-client'
 require 'base64'
-require_relative '../../.api_key.rb'
+# require_relative '../../.api_key.rb'
 
 class Character < ApplicationRecord
     has_many :character_badges
