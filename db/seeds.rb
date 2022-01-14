@@ -2,8 +2,8 @@ require 'rest-client'
 require 'json'
 require 'base64'
 require 'digest/md5'
-require 'dotenv'
-Dotenv.load('.env')
+# require 'dotenv'
+# Dotenv.load('.env')
 
 public_key = '1c829e435b4e86561621f2a7a7259e9e'
 
@@ -53,12 +53,12 @@ credly_headers = {
 # p credly_headers
 
 response = RestClient.get("https://sandbox-api.credly.com/v1/organizations/#{ENV['CREDLY_ORG_ID']}/badge_templates", credly_headers)
-p response
-# badges = JSON.parse(response)['data']
+# p response
+badges = JSON.parse(response)['data']
 
-# badges.each do |badge| 
-#     Badge.create(badge_id: badge['id'], name: badge['name'], image_url: badge['image_url'], issuer: badge['owner']['name'], skill: badge['skills'][0])
-#     end
+badges.each do |badge| 
+    Badge.create(badge_id: badge['id'], name: badge['name'], image_url: badge['image_url'], issuer: badge['owner']['name'], skill: badge['skills'][0])
+    end
 
 
 # p $credly_headers

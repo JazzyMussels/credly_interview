@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
+# gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jbuilder', '~> 2.7'
