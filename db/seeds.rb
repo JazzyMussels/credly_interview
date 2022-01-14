@@ -5,7 +5,8 @@ require_relative '../.api_key.rb'
 
 public_key = '1c829e435b4e86561621f2a7a7259e9e'
 
-hash = Digest::MD5.hexdigest("1#{$private_key}#{public_key}")
+# hash = Digest::MD5.hexdigest("1#{$private_key}#{public_key}")
+hash = Digest::MD5.hexdigest("1#{ENV['MARVEL_PRIVATE_KEY']}#{public_key}")
 
 
 i = 1011250
@@ -38,12 +39,19 @@ while i < 1011300
 i+= 1
 end
 
+credly_headers = {
+    :Accept => "application/json",
+    :Authorization => "Basic #{ENV['CREDLY_AUTH'][0...-1]}",
+    "Content-Type" => "application/json"
+}
 
-response = RestClient.get("https://sandbox-api.credly.com/v1/organizations/#{$org_id}/badge_templates", $credly_headers)
+response = RestClient.get("https://sandbox-api.credly.com/v1/organizations/#{ENV['CREDLY_ORG_ID']}/badge_templates", $credly_headers)
 badges = JSON.parse(response)['data']
 
 badges.each do |badge| 
     Badge.create(badge_id: badge['id'], name: badge['name'], image_url: badge['image_url'], issuer: badge['owner']['name'], skill: badge['skills'][0])
     end
 
+
+# p $credly_headers
 
