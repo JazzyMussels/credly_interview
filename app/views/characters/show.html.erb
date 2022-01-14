@@ -1,0 +1,42 @@
+<%= stylesheet_link_tag 'character_show.css'%>
+<%= link_to 'Back', characters_path, :class=>'nav_links' %>
+<div class='char_show_row'>
+    <div class='char_show_column_1'>
+      <%= image_tag @character.image, :class=> 'char_pic'%>
+        <div class='character_info'>
+            <strong>Name:</strong>
+            <%= @character.name %>
+        <br>
+            <strong>Description:</strong>
+            <%= @character.description %>
+             <h4>Current Badges</h4>
+            <% if @character.badges.length > 0%>
+                <% @character.badges.each do |badge| %>
+                <%= image_tag badge.image_url, :class=>'img_container' %>  
+                    <% end %>
+
+            <% else %>
+                <p>Collect Some Badges To Display Here! </p>
+            <% end %>
+        </div>
+    </div>
+
+    <div class='char_show_column_2'>
+        <h1>Available Badges </h1>
+        <div class='card_container'>
+                <% Badge.all.select{|badge| !@character.badges.include?(badge)}.each do |badge| %>
+
+                <div class='card'>
+                    <%= image_tag badge.image_url %>
+                    <div class='card_description'>
+                    <h1>Badge Name: <%= badge.name %></h1>
+                    <h3>Issuing Organization: <%= badge.issuer %></h3>
+                    <h3>Skill: <%= badge.skill %></h3>
+                    <h2><%= button_to "Add #{badge.name} to #{@character.name}",  action: 'add_badge_to_character', params: {character_id: @character.id, badge_id: badge.id} %></h2>
+                    </div>
+                </div>
+                <% end %>
+        </div>
+    </div>
+</div>
+

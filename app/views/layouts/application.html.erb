@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Credly Take-home</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= javascript_pack_tag "application" %>
+    <%= stylesheet_pack_tag "application" %>
+  </head>
+
+  <body>
+    <!-- load React header component instead -->
+    <%#= javascript_pack_tag "credly_take_home_header" %>
+
+    <%= yield %>
+  </body>
+</html>

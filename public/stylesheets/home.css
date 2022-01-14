@@ -1,0 +1,23 @@
+body{
+        background: url("https://i.ibb.co/3WYBGpL/terminator.jpg") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+}
+
+.header_img {
+        margin-top: 50px;
+        margin-left: 20px;
+        width: 400px;
+}
+
+.home_links{
+        float: right;
+        color: whitesmoke !important;
+        margin: 100px;
+}
+
+.home_links:hover{
+        color: rgb(240,19,30) !important;
+}

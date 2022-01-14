@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag 'badge_index.css'%>
+<div class='badge_index_pg'>
+        <div class='header-line'>
+        <%= image_tag 'credly_logo.png', :class=>"header_img"%> 
+        <h2>Available Badges - Assign Them To Heroes</h2>
+        <h3 class='char_link'><%= link_to 'Character Selection', characters_path %></h3>
+        </div>
+    <div class='card_container'>
+        <% @badges.each do |badge| %>
+        <div class='card'>
+            <%= image_tag badge.image_url %>
+            <div class='card_description'>
+            <h1>Badge Name: <%= badge.name %></h1>
+            <h3>Issuing Organization: <%= badge.issuer %></h3>
+            <h3>Skill: <%= badge.skill %></h3>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,2 @@
+module CharacterBadgesHelper
+end

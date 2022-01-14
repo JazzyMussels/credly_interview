@@ -1,0 +1,16 @@
+<%= stylesheet_link_tag 'character_index.css'%>
+<div class='char_index_pg'>
+        <div class='header-line'>
+        <%= image_tag 'marvel_heroes.png', :class=>"header_img"%> 
+        </div>
+    <div class='card_container'>
+        <% @characters.each do |character| %>
+        <div class='card'>
+            <%= image_tag character.image%>
+            <div class='card_description'>
+            <h2><%= link_to character.name,  character, :class=>"show_page_link"%></h2>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
