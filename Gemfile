@@ -14,6 +14,7 @@ gem 'webpacker', '~> 5.0'
 
 gem 'rest-client'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
