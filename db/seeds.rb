@@ -1,7 +1,8 @@
 require 'rest-client'
 require 'json'
 require 'base64'
-# require_relative '../.api_key.rb'
+require 'digest/md5'
+
 
 public_key = '1c829e435b4e86561621f2a7a7259e9e'
 
@@ -39,13 +40,15 @@ while i < 1011300
 i+= 1
 end
 
+# auth = Base64.strict_encode64(ENV['AUTH_TOKEN'])
+
 credly_headers = {
     :Accept => "application/json",
-    :Authorization => "Basic #{ENV['CREDLY_AUTH'][0...-1]}",
+    :Authorization => "Basic #{ENV['CREDLY_AUTH']}",
     "Content-Type" => "application/json"
 }
 
-response = RestClient.get("https://sandbox-api.credly.com/v1/organizations/#{ENV['CREDLY_ORG_ID']}/badge_templates", $credly_headers)
+response = RestClient.get("https://sandbox-api.credly.com/v1/organizations/#{ENV['CREDLY_ORG_ID']}/badge_templates", credly_headers)
 badges = JSON.parse(response)['data']
 
 badges.each do |badge| 

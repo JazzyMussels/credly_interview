@@ -1,7 +1,7 @@
 require 'date'
 require 'rest-client'
 require 'base64'
-# require_relative '../../.api_key.rb'
+
 
 class Character < ApplicationRecord
     has_many :character_badges
@@ -35,7 +35,7 @@ class Character < ApplicationRecord
 
           credly_headers = {
             :Accept => "application/json",
-            :Authorization => "Basic #{ENV['CREDLY_AUTH'][0...-1]}",
+            :Authorization => "Basic #{ENV['CREDLY_AUTH']}",
             "Content-Type" => "application/json"
         }
 
