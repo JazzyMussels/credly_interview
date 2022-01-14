@@ -5,6 +5,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
+gem 'dotenv-rails', groups: [:development, :test], require: 'dotenv/rails-now'
+
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -14,7 +16,7 @@ gem 'webpacker', '~> 5.0'
 
 gem 'rest-client'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-gem 'dotenv-rails'
+
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

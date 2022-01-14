@@ -33,9 +33,11 @@ class Character < ApplicationRecord
             
           }
 
+          auth = Base64.strict_encode64(ENV['CREDLY_AUTH'])
+
           credly_headers = {
             :Accept => "application/json",
-            :Authorization => "Basic #{ENV['CREDLY_AUTH']}",
+            :Authorization => "Basic #{auth}",
             "Content-Type" => "application/json"
         }
 
